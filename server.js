@@ -14,6 +14,7 @@ const io = new Server(server, {
 
 let messageHistory=[];
 let onlineUsers=0;
+let usernames={};
 
 app.get('/', (req, res) => {
   res.sendFile(join(__dirname, 'index.html'));
@@ -28,7 +29,8 @@ io.on('connection', (socket) => {
   socket.emit("chat_history",messageHistory); 
 
   socket.on("user_joined", (username) => {
-    socket.broadcast.emit("user_joined", username);
+    usernames[socket.id] = username;
+    io.emit("user_joined", username);
   });
 
   socket.on("send_message", (data) => {
@@ -38,6 +40,12 @@ io.on('connection', (socket) => {
 
   socket.on("disconnect", () => {
     console.log("User Disconnected:", socket.id);
+    
+    const username = usernames[socket.id];
+    if(username) {
+      io.emit("user_disconnected", username);
+      delete usernames[socket.id];
+    }
 
     onlineUsers--;
     io.emit("user_count",onlineUsers);
