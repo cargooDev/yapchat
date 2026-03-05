@@ -19,9 +19,9 @@ const io = new Server(server, {
 const connectDatabase = async () => {
   try {
     await mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://chatuser:chat1234@cluster0.yxrbiwr.mongodb.net/?appName=Cluster0');
-    console.log('✓ MongoDB connected successfully');
+    console.log('MongoDB connected successfully');
   } catch (error) {
-    console.error('✗ MongoDB connection error:', error.message);
+    console.error('MongoDB connection error:', error.message);
     process.exit(1);
   }
 };
