@@ -4,6 +4,7 @@ const { join } = require('node:path');
 const { Server } = require('socket.io');
 const mongoose = require('mongoose');
 require('dotenv').config();
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 const server = createServer(app);
@@ -112,7 +113,7 @@ io.on('connection', async (socket) => {
   });
 });
 
-server.listen(3000, () => {
+server.listen(PORT, () => {
   connectDatabase();
-  console.log('Server running at http://localhost:3000');
+  console.log(`Server running on port ${PORT}`);
 });
