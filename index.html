@@ -176,7 +176,7 @@
         const item = document.createElement('li');
         item.textContent = data.username + ": " + data.message;
         messages.appendChild(item);
-        window.scrollTo(0, document.body.scrollHeight);
+        messages.scrollTop = messages.scrollHeight;
       });
 
       socket.on("user_joined", function(name) {
@@ -201,6 +201,7 @@
           item.textContent = data.username + ": " + data.message;
           messages.appendChild(item);
         });
+        messages.scrollTop = messages.scrollHeight;
       });
 
       socket.on("user_count", function(count) {
