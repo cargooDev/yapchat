@@ -1,4 +1,13 @@
-YapChat
+-----------------------------------------------------------------------                                                                    
+mmm    mmm                        mmmm   mm                           
+ ##m  m##                       ##""""#  ##                    ##     
+  ##mm##    m#####m  ##m###m   ##"       ##m####m   m#####m  #######  
+   "##"     " mmm##  ##"  "##  ##        ##"   ##   " mmm##    ##     
+    ##     m##"""##  ##    ##  ##m       ##    ##  m##"""##    ##     
+    ##     ##mmm###  ###mm##"   ##mmmm#  ##    ##  ##mmm###    ##mmm  
+    ""      """" ""  ## """       """"   ""    ""   """" ""     """"  
+                     ##       
+-----------------------------------------------------------------------
 
 A simple real-time public chat application built with Node.js, Socket.IO, Express, and MongoDB Atlas.
 Users can join the chat with a username, send messages instantly, and view previous chat history stored in the database.
